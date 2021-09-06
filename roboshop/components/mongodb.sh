@@ -61,7 +61,7 @@ fi
 
  cd /tmp
     echo "Extracting mongodb Archive"
- unzip -o mongodb.zip &>>/tmp/log
+ unzippp -o mongodb.zip &>>/tmp/log
  if [ $? -eq 0 ]; then
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
