@@ -1,6 +1,6 @@
 #!bin/bash 
 
-Status_checks() {
+Status_checks () {
  if [ $1 -eq 0 ]; then
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
