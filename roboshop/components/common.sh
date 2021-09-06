@@ -14,7 +14,7 @@ Print() {
   echo -n -e "$1 \t- "
 }
 if [ $SUI -ne 0 ]; then
-    echo -e "\n\e[1;35mYou need root permission\e\0m"
+    echo -e "\n\e[1;35mYou need root permission\e[0m\n"
     exit 1
     
     fi
