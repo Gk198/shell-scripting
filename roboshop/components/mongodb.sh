@@ -11,7 +11,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mong
 
 echo "Installing Mongodb"
 
- yum install -y mongodb-org >/tmp/log
+ yum install -y mongodb-org >>/tmp/log
  
  echo "Configuring Mongodb"
  
@@ -27,10 +27,10 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongo
 
  cd /tmp
  echo "Extracting mongodb Archive"
- unzip -o mongodb.zip >/tmp/log
+ unzip -o mongodb.zip >>/tmp/log
  cd mongodb-main
  echo "Loading schema"
- mongo < catalogue.js >/tmp/log
- mongo < users.js  >/tmp/log
+ mongo < catalogue.js >>/tmp/log
+ mongo < users.js  >>/tmp/log
  
  
