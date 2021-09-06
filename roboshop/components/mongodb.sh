@@ -24,15 +24,15 @@ enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 Status_Check $?
 
-Print "Installing Mongodb"
+Print "Installing Mongodb\t"
   yum install -y mongodb-org &>>/tmp/log
  Status_Check $?
  
- Print "Configuring Mongodb"
+ Print "Configuring Mongodb\t"
  sed -i -e 's/127.0.0.0/0.0.0.0/' /etc/mongod.conf
  Status_Check $?
 
-Print "Starting Mongodb"
+Print "Starting Mongodb\t"
  systemctl enable mongod
  systemctl restart mongod
  Status_Check $?
@@ -47,7 +47,7 @@ cd /tmp
  Status_Check $?
 
  cd mongodb-main
-   Print "Loading schema"
+   Print "Loading schema\t"
  mongo < catalogue.js &>>/tmp/log
  mongo < users.js  &>>/tmp/log
  Status_Check $?
