@@ -1,6 +1,6 @@
 #!bin/bash 
 
-echo "setting up mongodb repo"
+echo "Setting up Mongodb repo"
 
 echo '[mongodb-org-4.2]
 name=MongoDB Repository
@@ -9,28 +9,28 @@ gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
 
-echo "installing mongodb"
+echo "Installing Mongodb"
 
- yum install -y mongodb-org>tmp/log
+ yum install -y mongodb-org>/tmp/log
  
- echo "configuring mongodb"
+ echo "Configuring Mongodb"
  
  sed -i -e "s/127.0.0.0/0.0.0.0" /etc/mongod.conf
  
-echo "starting mongodb"
+echo "Starting Mongodb"
  systemctl enable mongod
  systemctl restart mongod
 
 
-echo "Downloading mongodb schema"
+echo "Downloading Mongodb schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 
  cd /tmp
  echo "Extracting mongodb Archive"
- unzip -o mongodb.zip >tmp/log
+ unzip -o mongodb.zip >/tmp/log
  cd mongodb-main
  echo "Loading schema"
- mongo < catalogue.js>tmp/log
- mongo < users.js >tmp/log
+ mongo < catalogue.js>/tmp/log
+ mongo < users.js >/tmp/log
  
  
