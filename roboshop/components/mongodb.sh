@@ -1,6 +1,6 @@
 #!bin/bash 
 
-Status_checks () {
+Status_check() {
  if [ $1 -eq 0 ]; then
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
@@ -19,13 +19,13 @@ baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-4.2.asc' >/etc/yum.repos.d/mongodb.repo
-status_checks $?
+status_check $?
 
   Print "Installing Mongodb"
 
  yum install -y mongodb-org &>>/tmp/log
  
- status_checks $?
+ status_check $?
  
    Print "Configuring Mongodb"
  
