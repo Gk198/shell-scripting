@@ -14,6 +14,7 @@ if [ $? -eq 0 ]; then
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
 
    
@@ -24,6 +25,7 @@ echo "Installing Mongodb"
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
  
  echo "Configuring Mongodb"
@@ -33,6 +35,7 @@ fi
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
  
    echo "Starting Mongodb"
@@ -42,6 +45,7 @@ fi
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
 
 
@@ -52,6 +56,7 @@ if [ $? -eq 0 ]; then
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
 
  cd /tmp
@@ -61,6 +66,7 @@ fi
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
  cd mongodb-main
    echo "Loading schema"
@@ -70,6 +76,7 @@ fi
    echo -e "\e[32mCOMPLETED\e[0m"
 else 
    echo -e "\e[31mNOTCOMPLETED\e[0m"
+   exit 2
 fi
  
  
