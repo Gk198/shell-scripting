@@ -38,6 +38,11 @@ fi
    echo "Starting Mongodb"
  systemctl enable mongod
  systemctl restart mongod
+ if [ $? -eq 0 ]; then
+   echo -e "\e[32mCOMPLETED\e[0m"
+else 
+   echo -e "\e[31mNOTCOMPLETED\e[0m"
+fi
 
 
   echo "Downloading Mongodb schema"
