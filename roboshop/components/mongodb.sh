@@ -35,16 +35,22 @@ else
    echo -e "\e[31mNOTCOMPLETED\e[0m"
 fi
  
-echo "Starting Mongodb"
+   echo "Starting Mongodb"
  systemctl enable mongod
  systemctl restart mongod
 
 
-echo "Downloading Mongodb schema"
+  echo "Downloading Mongodb schema"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 
+if [ $? -eq 0 ]; then
+   echo -e "\e[32mCOMPLETED\e[0m"
+else 
+   echo -e "\e[31mNOTCOMPLETED\e[0m"
+fi
+
  cd /tmp
- echo "Extracting mongodb Archive"
+    echo "Extracting mongodb Archive"
  unzip -o mongodb.zip &>>/tmp/log
  if [ $? -eq 0 ]; then
    echo -e "\e[32mCOMPLETED\e[0m"
@@ -52,7 +58,7 @@ else
    echo -e "\e[31mNOTCOMPLETED\e[0m"
 fi
  cd mongodb-main
- echo "Loading schema"
+   echo "Loading schema"
  mongo < catalogue.js &>>/tmp/log
  mongo < users.js  &>>/tmp/log
  if [ $? -eq 0 ]; then
