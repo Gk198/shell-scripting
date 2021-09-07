@@ -33,8 +33,7 @@ Print "Download NodeJS Dependancy"
  npm install --unsafe-perm &>>/tmp/log
  Status_Check $?
  chown roboshop:roboshop -R /home/roboshop
+ Print "Setup systemd service"
+ mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl start catalogue &>>/tmp/log && systemctl enable catalogue &>>/tmp/log
  
-  # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
-# systemctl daemon-reload
-# systemctl start catalogue
-# systemctl enable catalogue
+ Status_Check $?
