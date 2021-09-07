@@ -33,8 +33,7 @@ Print "Download NodeJS Dependancy"
  cd /home/roboshop/catalogue
  npm install --unsafe-perm &>>/tmp/log
  Status_Check $?
- 
- chow roboshop:roboshop -R /home/roboshop
+ chown roboshop:roboshop -R /home/roboshop
  
   # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
