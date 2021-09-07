@@ -27,12 +27,14 @@ Status_Check $?
 Print "Extracting Catalogue"
  cd /home/roboshop
  unzip -o /tmp/catalogue.zip &>>/tmp/log
- mv catalogue-main catalogue &>>/tmp/log
+ mv catalogue-main catalogue 
 Status_Check $?
-
+Print "Download NodeJS Dependancy"
  cd /home/roboshop/catalogue
  npm install --unsafe-perm &>>/tmp/log
  Status_Check $?
+ 
+ chow roboshop:roboshop -R /home/roboshop
  
   # mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 # systemctl daemon-reload
