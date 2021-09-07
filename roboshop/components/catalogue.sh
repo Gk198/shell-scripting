@@ -3,13 +3,13 @@
 
 source components/common.sh
 
-Print "Installing NodeJS"
+Print "Installing NodeJS\t"
 
 yum install nodejs make gcc-c++ -y &>>/tmp/log
 
 Status_Check $?
 
-Print "Adding Roboshop user"
+Print "Adding Roboshop user\t"
 id roboshop &>>/tmp/log
 
 if [ $? -eq 0 ]; then
@@ -24,7 +24,7 @@ Print "Downloading Catalogue Content"
  
 Status_Check $?
 
-Print "Extracting Catalogue"
+Print "Extracting Catalogue\t"
  cd /home/roboshop
  rm -rf catalogue
  unzip -o /tmp/catalogue.zip &>>/tmp/log
