@@ -39,6 +39,6 @@ Print "Download NodeJS Dependancy"
  Status_Check $?
  
  Print "Setup systemd service\t"
- mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl start catalogue &>>/tmp/log && systemctl enable catalogue &>>/tmp/log
+ mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl restart catalogue &>>/tmp/log && systemctl enable catalogue &>>/tmp/log
  
  Status_Check $?
