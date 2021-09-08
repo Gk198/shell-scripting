@@ -17,7 +17,7 @@ Print "Installing Mongodb\t"
  Status_Check $?
  
  Print "Configuring Mongodb\t"
- sed -i -e 's/127.0.0.0/0.0.0.0/' /etc/mongod.conf
+ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
  Status_Check $?
 
 Print "Starting Mongodb\t"
