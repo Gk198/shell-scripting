@@ -15,8 +15,17 @@ Print "Install Yum Utils & Download Radis Repos"
 Status_Check $?
 
 
-Print "Install Radis\t\t\t"
+Print "Install Radis\t\t\t\t"
 yum install redis -y &>>/tmp/log
+Status_Check $?
+
+Print "Configure Redis Listen Address\t\t\t"
+if [ -f /etc/redis.conf ]; then
+  sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
+fi
+if [ -f /etc/redis/redis.conf ]; then
+  sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
+fi
 Status_Check $?
 
 Print "Configure redis listen Address\t"
