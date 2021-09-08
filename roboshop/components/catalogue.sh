@@ -33,6 +33,10 @@ Print "Download NodeJS Dependancy"
  npm install --unsafe-perm &>>/tmp/log
  Status_Check $?
  chown roboshop:roboshop -R /home/roboshop
+ Print "update systemd service"
+ sed -i -e 's\MONGO_DNSNAME/mongodb.roboshop.internal' /home/roboshop/catalogue/systemd.service
+ Status_Check $?
+ 
  Print "Setup systemd service\t"
  mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service && systemctl daemon-reload && systemctl start catalogue &>>/tmp/log && systemctl enable catalogue &>>/tmp/log
  
