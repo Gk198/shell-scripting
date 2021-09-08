@@ -34,7 +34,7 @@ Print "Download NodeJS Dependancy"
  Status_Check $?
  chown roboshop:roboshop -R /home/roboshop
  Print "update systemd service"
- sed -i -e 's\MONGO_DNSNAME/mongodb.roboshop.internal' /home/roboshop/catalogue/systemd.service
+ sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service
  Status_Check $?
  
  Print "Setup systemd service\t"
