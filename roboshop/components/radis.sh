@@ -33,6 +33,6 @@ Print "Configure redis listen Address\t\t"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf 
 Status_Check $?
 
-Print "Start Redis service\t\t"
+Print "Start Redis service\t\t\t"
 systemctl enable redis &>>/tmp/log && systemctl start redis &>>/tmp/log
 Status_Check $?
