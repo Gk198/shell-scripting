@@ -19,7 +19,8 @@ Print "Install Radis\t\t\t\t"
 yum install redis -y &>>/tmp/log
 Status_Check $?
 
-Print "Configure Redis Listen Address\t\t\t"
+Print "Configure Redis Listen Address\t\t"
+
 if [ -f /etc/redis.conf ]; then
   sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf
 fi
@@ -28,10 +29,10 @@ if [ -f /etc/redis/redis.conf ]; then
 fi
 Status_Check $?
 
-Print "Configure redis listen Address\t"
+Print "Configure redis listen Address\t\t"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf 
 Status_Check $?
 
-Print "Start Redis service\t\t\"
+Print "Start Redis service\t\t"
 systemctl enable redis &>>/tmp/log && systemctl start redis &>>/tmp/log
 Status_Check $?
