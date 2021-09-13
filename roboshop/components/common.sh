@@ -58,7 +58,7 @@ NODEJS() {
   DOWNLOAD
   Print "Download NodeJS Dependencies"
   cd /home/roboshop/${COMPONENT}
-  npm install --unsafe-perm 
+  npm install --unsafe-perm &>>/tmp/log
   Status_Check $?
   chown roboshop:roboshop -R /home/roboshop
   SystemdD_Setup
