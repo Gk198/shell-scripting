@@ -46,7 +46,7 @@ SystemdD_Setup() {
   Status_Check $?
 
   Print "Setup SystemD Service\t"
-  mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service && systemctl daemon-reload && systemctl restart ${COMPONENT} &>>$LOG && systemctl enable ${COMPONENT} &>>/tmp/log
+  mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service && systemctl daemon-reload && systemctl restart ${COMPONENT} &>>/tmp/log && systemctl enable ${COMPONENT} &>>/tmp/log
   Status_Check $?
 }
 
