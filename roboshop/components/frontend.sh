@@ -32,6 +32,6 @@ Status_Check $?
 
  
  Print "Restart Nginx Service\t"
-
  systemctl restart nginx &>>/tmp/log && systemctl enable nginx &>>/tmp/log
+ 
  Status_Check $?
