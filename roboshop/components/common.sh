@@ -23,16 +23,16 @@ if [ $SUI -ne 0 ]; then
   Print "Adding RoboShop User\t"
   id roboshop &>>$LOG
   if [ $? -eq 0 ]; then
-    echo "User already there, So Skipping" &>>$LOG
+    echo "User already there, So Skipping" &>>/tmp/log
   else
-    useradd roboshop &>>$LOG
+    useradd roboshop &>>/tmp/log
   fi
   Status_Check $?
 }
 
 DOWNLOAD() {
   Print "Downloading ${COMPONENT} Content"
-  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
+  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>/tmp/log
   Status_Check $?
   Print "Extracting ${COMPONENT}\t"
   cd /home/roboshop
@@ -42,25 +42,26 @@ DOWNLOAD() {
 
 SystemdD_Setup() {
   Print "Update SystemD Service\t"
-  sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e  's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' -e 's/CARTENDPOINT/cart.roboshop.internal/' -e 's/DBHOST/mysql.roboshop.internal/' -e 's/CARTHOST/cart.roboshop.internal/' -e 's/USERHOST/user.roboshop.internal/' -e 's/AMQPHOST/rabbitmq.roboshop.internal/'  /home/roboshop/${COMPONENT}/systemd.service
+  sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' -e  's/MONGO_ENDPOINT/mongodb.roboshop.internal/' -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/'   /home/roboshop/${COMPONENT}/systemd.service
   Status_Check $?
 
   Print "Setup SystemD Service\t"
-  mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service && systemctl daemon-reload && systemctl restart ${COMPONENT} &>>$LOG && systemctl enable ${COMPONENT} &>>$LOG
+  mv /home/roboshop/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service && systemctl daemon-reload && systemctl restart ${COMPONENT} &>>$LOG && systemctl enable ${COMPONENT} &>>/tmp/log
   Status_Check $?
 }
 
 NODEJS() {
   Print "Installing NodeJS\t"
-  yum install nodejs make gcc-c++ -y &>>$LOG
+  yum install nodejs make gcc-c++ -y &>>/tmp/log
   Status_Check $?
   ADD_APP_USER
   DOWNLOAD
   Print "Download NodeJS Dependencies"
   cd /home/roboshop/${COMPONENT}
-  npm install --unsafe-perm &>>$LOG
+  npm install --unsafe-perm &>>tmp/log
   Status_Check $?
   chown roboshop:roboshop -R /home/roboshop
   SystemdD_Setup
 }
 
+ 
