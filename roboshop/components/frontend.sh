@@ -28,7 +28,7 @@ Print "Copy Nginx Roboshop Config"
  
  Print "Update Nginx RoboShop Config"
  
-sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/'  /etc/nginx/default.d/roboshop.conf  &>>/tmp/log
+sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' /etc/nginx/default.d/roboshop.conf  &>>/tmp/log
 Status_Check $?
 
  
