@@ -21,10 +21,15 @@ rm -rf /usr/share/nginx/* && cd /usr/share/nginx && unzip -o /tmp/frontend.zip  
 Status_Check $?
 
 
-Print "Update Nginx Roboshop Config"
+Print "Copy Nginx Roboshop Config"
 
  mv localhost.conf /etc/nginx/default.d/roboshop.conf
  Status_Check $?
+ 
+ Print "Update Nginx RoboShop Config"
+sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user/ s/localhost/user.roboshop.internal/' -e '/cart/ s/localhost/cart.roboshop.internal/' -e '/shipping/ s/localhost/shipping.roboshop.internal/' -e '/payment/ s/localhost/payment.roboshop.internal/' /etc/nginx/default.d/roboshop.conf  &>>/tmp/log
+Status_Check $?
+
  
  Print "Restart Nginx Service\t"
 
