@@ -2,7 +2,7 @@
 
 source components/common.sh
 
-COMPONENT=user
+COMPONENT=User
 ## NODEJS is a function from common.sh
 NodeJS
 
