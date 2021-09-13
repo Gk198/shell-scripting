@@ -21,7 +21,7 @@ if [ $SUI -ne 0 ]; then
     
     ADD_APP_USER() {
   Print "Adding RoboShop User\t"
-  id roboshop &>>$LOG
+  id roboshop &>>/tmp/log
   if [ $? -eq 0 ]; then
     echo "User already there, So Skipping" &>>/tmp/log
   else
@@ -36,7 +36,7 @@ DOWNLOAD() {
   Status_Check $?
   Print "Extracting ${COMPONENT}\t"
   cd /home/roboshop
-  rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>$LOG && mv ${COMPONENT}-main ${COMPONENT}
+  rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>/tmp/log && mv ${COMPONENT}-main ${COMPONENT}
   Status_Check $?
 }
 
