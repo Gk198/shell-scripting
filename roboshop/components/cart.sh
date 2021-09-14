@@ -2,6 +2,6 @@
 
 source components/common.sh
 
-COMPONENT=user
+COMPONENT=cart
 ## NODEJS is a function from common.sh
 NODEJS
