@@ -67,7 +67,7 @@ NODEJS() {
 JAVA() {
   Print "Installing Maven\t"
   yum install maven -y &>>/tmp/log
-  Status_Check $?
+  Status_Check $
   ADD_APP_USER
   DOWNLOAD
   cd /home/roboshop/shipping
