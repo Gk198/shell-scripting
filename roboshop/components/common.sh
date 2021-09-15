@@ -36,7 +36,7 @@ DOWNLOAD() {
   Status_Check $?
   Print "Extracting ${COMPONENT}\t"
   cd /home/roboshop
-  rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>/tmp/log && mv ${COMPONENT}-main ${COMPONENT}
+  rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>/tmp && mv ${COMPONENT}-main ${COMPONENT}
   Status_Check $?
 }
 
@@ -67,7 +67,7 @@ NODEJS() {
 JAVA() {
   Print "Installing Maven\t"
   yum install maven -y &>>/tmp/log
-  Status_Check $
+  Status_Check $?
   ADD_APP_USER
   DOWNLOAD
   cd /home/roboshop/shipping
