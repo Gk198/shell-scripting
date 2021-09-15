@@ -68,11 +68,8 @@ JAVA() {
   Print "Installing Maven\t"
   yum install maven -y &>>/tmp/log
   Status_Check $?
-  
   ADD_APP_USER
-  
   DOWNLOAD
-  
   cd /home/roboshop/shipping
   Print "Make Shipping Package\t"
   mvn clean package &>>/tmp/log
@@ -83,5 +80,7 @@ JAVA() {
   chown roboshop:roboshop -R /home/roboshop
   SystemdD_Setup
 }
+
+
 
  
