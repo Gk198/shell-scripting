@@ -27,8 +27,7 @@ Print "Copy Nginx Roboshop Config"
  Status_Check $?
  
  Print "Update Nginx RoboShop Config"
- 
-sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user/ s/localhost/user.roboshop.internal/' -e '/cart/ s/localhost/cart.roboshop.internal/' /etc/nginx/default.d/roboshop.conf  &>>/tmp/log
+ sed -i -e '/catalogue/ s/localhost/catalogue.roboshop.internal/' -e '/user/ s/localhost/user.roboshop.internal/' -e '/cart/ s/localhost/cart.roboshop.internal/' /etc/nginx/default.d/roboshop.conf  &>>/tmp/log
 Status_Check $?
 
  
@@ -36,3 +35,4 @@ Status_Check $?
  systemctl restart nginx &>>/tmp/log && systemctl enable nginx &>>/tmp/log
  
  Status_Check $?
+ 
