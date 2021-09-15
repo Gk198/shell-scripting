@@ -14,11 +14,11 @@ gpgcheck=0' > /etc/yum.repos.d/mysql.repo
 
 Status_Check $?
 
-Print "Install MySQL Service"
+Print "Install MySQL Service\t\t"
  yum remove mariadb-libs -y &>>/tmp/log && yum install mysql-community-server -y &>>/tmp/log
  Status_Check $?
 
-Print "Start MySQL service"
+Print "Start MySQL service\t\t"
 systemctl enable mysqld &>>/tmp/log && systemctl start mysqld &>>/tmp/log
 Status_Check $?
 
