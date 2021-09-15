@@ -3,5 +3,5 @@
 source components/common.sh
 
 COMPONENT=shipping
-## shppingis a function from common.sh
-JAVA 
+## NODEJS is a function from common.sh
+JAVA
