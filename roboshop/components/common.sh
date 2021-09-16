@@ -70,11 +70,11 @@ JAVA() {
   Status_Check $?
   ADD_APP_USER
   DOWNLOAD
-  cd /home/roboshop
+  cd /home/roboshop/shipping
   Print "Make Shipping Package\t"
   mvn clean package &>>/tmp/log
   Status_Check $?
-  cd shipping
+  
   Print "Rename Shipping Package"
   mv target/shipping-1.0.jar shipping.jar &>>/tmp/log
   Status_Check $?
