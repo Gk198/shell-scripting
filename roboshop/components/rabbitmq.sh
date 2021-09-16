@@ -5,8 +5,8 @@ source components/common.sh
 
 
 Print "Install ErLang\t"
-
-  yum list installed | grep erlang &>>/tmp/log
+ 
+ yum list installed | grep erlang &>>/tmp/log
   if [ $? -eq 0 ]; then
   
     echo "Package Already installed" &>>/tmp/log
@@ -34,3 +34,4 @@ if [ $? -ne 0 ]; then
 fi
 rabbitmqctl set_user_tags roboshop administrator &>>/tmp/log && rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>/tmp/log
 Status_Check $?
+
