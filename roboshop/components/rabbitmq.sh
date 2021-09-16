@@ -2,7 +2,7 @@
 
 source components/common.sh
 
-COMPONENT=rabbitmq
+
 
 Print "Install ErLang\t"
   yum list installed | grep erlang &>>/tmp/log
