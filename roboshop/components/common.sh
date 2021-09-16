@@ -31,12 +31,12 @@ if [ $SUI -ne 0 ]; then
 }
 
 DOWNLOAD() {
-  Print "Downloading ${COMPONENT} Content\t"
-  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>/tmp/log
+  Print "Downloading ${COMPONENT} Content"
+  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
   Status_Check $?
   Print "Extracting ${COMPONENT}\t"
   cd /home/roboshop
-  rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>/tmp && mv ${COMPONENT}-main ${COMPONENT}
+  rm -rf ${COMPONENT} && unzip -o /tmp/${COMPONENT}.zip &>>$LOG && mv ${COMPONENT}-main ${COMPONENT}
   Status_Check $?
 }
 
