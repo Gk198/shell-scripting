@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 source components/common.sh
 
 Print "Install ErLang\t"
