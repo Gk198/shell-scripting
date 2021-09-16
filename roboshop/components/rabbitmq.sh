@@ -6,6 +6,7 @@ source components/common.sh
 
 Print "Install ErLang\t"
   yum list installed | grep erlang &>>/tmp/log
+  
   if [ $? -eq 0 ]; then
     echo "Package Already installed" &>>/tmp/log
   else
