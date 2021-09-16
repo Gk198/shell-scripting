@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-source components/common.sh
+source componets/common.sh
+
 
 Print "Install ErLang\t"
   yum list installed | grep erlang &>>/tmp/log
