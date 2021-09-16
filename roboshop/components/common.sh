@@ -99,10 +99,10 @@ PYTHON() {
   Status_Check $?
 
   USERID=$(id -u roboshop)
-  GROUPID=$(id -g roboshop)
+  GROUPID=$(id -u roboshop)
 
   Print "Update RoboShop User in Config"
- sed -i -e "/uid/ c uid=${USERID}" -e "/gid/ c gid=${GROUPID}" /home/roboshop/payment/payment.ini &>>tmp/log
+ sed -i -e "/uid/ c uid=${USERID}" -e "/gid/ c gid=${GROUPID}" /home/roboshop/payment/payment.ini &>>/tmp/log
   Status_Check $?
 
   SystemdD_Setup
