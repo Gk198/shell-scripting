@@ -1,4 +1,4 @@
-#!bin/bash 
+#!bin/bash
 
 Status_Check() {
   if [ $1 -eq 0 ]; then 
