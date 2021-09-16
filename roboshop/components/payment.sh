@@ -2,6 +2,6 @@
 
 source components/common.sh
 
-COMPONENT= payment
+COMPONENT=payment
 ## PYTHON is a function from common.sh
 PYTHON
