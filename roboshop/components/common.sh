@@ -32,7 +32,7 @@ if [ $SUI -ne 0 ]; then
 
 DOWNLOAD() {
   Print "Downloading ${COMPONENT} Content"
-  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>$LOG
+  curl -s -L -o /tmp/${COMPONENT}.zip "https://github.com/roboshop-devops-project/${COMPONENT}/archive/main.zip" &>>/tmp/log
   Status_Check $?
   Print "Extracting ${COMPONENT}\t"
   cd /home/roboshop
