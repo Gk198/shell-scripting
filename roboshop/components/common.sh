@@ -6,6 +6,7 @@ Status_Check() {
   else 
     echo -e "\e[31mNOTCOMPLETED\e[0m"
     echo -e "\e[33m Refer Log file : &>>/tmp/log for more information\e[0m"
+    
     exit 2
   fi 
 }
