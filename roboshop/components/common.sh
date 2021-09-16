@@ -75,7 +75,7 @@ JAVA() {
   mvn clean package &>>/tmp/log
   Status_Check $?
   Print "Rename Shipping Package"
-  mv target/ shipping-1.0.jar shipping.jar
+  mv target/shipping-1.0.jar shipping.jar &>>/tmp/log
   Status_Check $?
   chown roboshop:roboshop -R /home/roboshop
   SystemdD_Setup
